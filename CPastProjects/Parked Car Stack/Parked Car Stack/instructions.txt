@@ -1,0 +1,16 @@
+Using the parked car simulation program as a basis. Write a simulation program that simulates cars entering a parking lot, paying for parking, and leaving the parking lot. The officer will randomly appear to survey the cars in the lot to ensure that no cars are parked beyond their time limit. If a car is found to be in violation, then the car is towed away (removed from the parking lot). The simulation should have the following parameters:
+
+•A lot with 20 spaces
+•Cars can pay for parking in 15 minute increments: 15, 30, 45, and 60 minutes.
+•Cars can be parked at a max of 1 hour. Therefore a car could pay for 30 minutes of parking, and park for 45 minutes. Any car parked for more than an hour is automatically in violation and is towed away.
+•Cars can park for 5 - 70 minutes (using 5 minute increments)
+•Cars that are towed are just removed from the lot
+•The police officer should patrol at least once every 10 minutes on average.
+•If the lot is full, cars are removed from the simulation.
+
+The program should only ask the user for the amount of time (in minutes) to run the simulation. The simulation should run to the end and output the following data:
+
+•Number of cars that were found in violation
+•Number of cars that parked
+•Number of cars that were turned away because the lot was full
+•The average # of full spaces

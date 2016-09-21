@@ -1,0 +1,1065 @@
+/* CIST 2361 - Final Project - Blackjack Game
+		Kimberly Jackson
+
+		Description: Blackjack with some casino rules. More to come.
+
+*/
+
+#include <iostream>
+#include <ctime>
+#include <fstream>
+#include <cstdlib>
+#include <cctype>
+#include <string>
+#include <cstdio>
+
+using namespace std;
+
+struct player
+{
+	string name,
+		password;
+	int wins,
+		losses,
+		ties,
+		gilchips;
+};
+
+ifstream users("highscores.txt");
+ofstream users2("highscores2.txt");
+
+void manual(); //instructions
+void blackjack1player(int dealercardcount, int player1cardcount, 
+	int dealercards[], int player1cards[], player &playera); //single player
+void blackjack2player(int dealercardcount, int player1cardcount, int player2cardcount,
+	int dealercards[], int player1cards[], int player2cards[], player &, player &); //double player
+player nameretrieval(); //accepts character arrays for the username
+void cardsdealt(bool singleDeck[]); //shuffles the deck
+int nextcard(bool singleDeck[]); //deals cards to dealer and player
+void displayhand(int playerhand[], const int); //displays the card values of the dealer and players
+void displaycard(int); //called by the previous function to display the value of a single card
+int scorehand(int playerhand[], const int playercardcount); //totals up the score of the hands
+int bettingpool(player); //to handle betting
+
+int main()
+{
+	unsigned timeseed = time(0);
+	srand(timeseed);
+	int dealercardcount = 0,
+		player1cardcount = 0,
+		player2cardcount = 0,
+		dealercards[12],
+		player1cards[12],
+		player2cards[12],
+		menu,
+		playercount;
+	player player1,
+		player2,
+		playertemp;
+
+
+	cout << "Welcome to the Scorpatia Casino!\n";
+	cout << "You have stepped up to a Blackjack table.\n";
+	do
+		{
+		cout << "Please choose an option below.\n";
+		cout << "\n";
+		cout << "1. Sit down to play.\t2. Step away to quit.\n";
+		cout << "3. Listen to instructions on how to play the game.\n";
+		cin >> menu;
+		cout << "\n";
+
+		if (menu == 3)
+			manual();
+		
+		if (menu == 2)
+		{
+			cout << "There are other games at the casino. Feel free to return, however.\n";
+			break;
+		}
+		
+		if (menu == 1)
+		{
+			do
+			{
+				cout << "Another chump ready to gamble all their money away, eh?\n";
+				cout << "And what is this? Did you bring a friend?\n";
+				cout << "(Please type 1 or 2 for the number of players.)\n";
+				cin >> playercount;
+				cout << "\n";
+				if (playercount == 1)
+					{
+						player1 = nameretrieval();
+						blackjack1player(dealercardcount, player1cardcount, dealercards, player1cards, player1);
+						cout << player1.name << ", your new Win/Loss/Tie record is\n";
+						cout << "Wins: " << player1.wins << "\tLosses: " << player1.losses << "\tTies: " << player1.ties << "\n";
+						cout << "New Gilchip count is: " << player1.gilchips << "\n";
+						users.close();
+						users.open("highscores.txt");
+
+						users2 << player1.name << " " << player1.password << " " << player1.wins << " " 
+									<< player1.losses << " " << player1.ties << " " << player1.gilchips << "\n";
+
+						while (users >> playertemp.name)
+						{
+							users >> playertemp.password;
+							users >> playertemp.wins;
+							users >> playertemp.losses;
+							users >> playertemp.ties;
+							users >> playertemp.gilchips;
+
+							if (playertemp.name == player1.name)
+							{
+								//nothing. need to skip writing the information a second time
+							}
+							else 
+							{
+								users2 << playertemp.name << " " << playertemp.password << " " << playertemp.wins << " "
+									<< playertemp.losses << " " << playertemp.ties << " " << playertemp.gilchips << "\n";
+							}
+						}
+						
+					}
+					else if (playercount == 2)
+					{
+						player1 = nameretrieval();
+						player2 = nameretrieval();
+						blackjack2player(dealercardcount, player1cardcount, player2cardcount, 
+							dealercards, player1cards, player2cards, player1, player2);
+						cout << player1.name << ", your new Win/Loss/Tie record is\n";
+						cout << "Wins: " << player1.wins << "\tLosses: " << player1.losses << "\tTies: " << player1.ties << "\n";
+						cout << "New Gilchip count is: " << player1.gilchips << "\n";
+						cout << player2.name << ", your new Win/Loss/Tie record is\n";
+						cout << "Wins: " << player2.wins << "\tLosses: " << player2.losses << "\tTies: " << player2.ties << "\n";
+						cout << "New Gilchip count is: " << player2.gilchips << "\n";
+						users.close();
+						users.open("highscores.txt");
+
+						users2 << player1.name << " " << player1.password << " " << player1.wins << " " 
+									<< player1.losses << " " << player1.ties << " " << player1.gilchips << "\n";
+
+						users2 << player2.name << " " << player2.password << " " << player2.wins << " " 
+									<< player2.losses << " " << player2.ties << " " << player2.gilchips;
+
+						while (users >> playertemp.name)
+						{
+							users >> playertemp.password;
+							users >> playertemp.wins;
+							users >> playertemp.losses;
+							users >> playertemp.ties;
+							users >> playertemp.gilchips;
+
+							if (playertemp.name == player1.name)
+							{
+								//nothing. need to skip writing the information a second time
+							}
+							else if (playertemp.name == player2.name)
+							{
+								//nothing. need to skip writing the information a second time;
+							}
+							else
+							{
+								users2 << playertemp.name << " " << playertemp.password << " " << playertemp.wins << " "
+									<< playertemp.losses << " " << playertemp.ties << " " << playertemp.gilchips << "\n";
+							}
+							
+						}
+					}
+					else if (playercount < 0 || playercount > 2)
+					{
+						cout << "Only a party of 2 players are allowed at each table.\n";
+						cout << "Will you play alone, or with one friend?\n";
+						cout << "(Please enter only the numbers 1 or 2.)\n";
+						cout << "\n";
+					}
+			} while (playercount < 0 || playercount > 2);
+		}
+
+		} while(menu < 0 || menu > 2);
+
+	char oldname[] = "highscores2.txt";
+	char newname[] = "highscores.txt";
+	
+	users.close();
+	remove("highscores.txt");
+	users2.close();
+	rename(oldname, newname);
+	cout << "\n";
+	cout << "Thank you for playing. Feel free to stop by again.\n";
+	cout << "\n";
+	system("pause");
+	return 0;
+}
+
+void manual()
+{
+	cout << "THIS IS HOW YOU PLAY A BLACKJACK. RIGHT HERE.\n";
+	cout << "Not really. It's long and convoluted and I'll come back to this.\n";
+	cout << "\n";
+	cout << "The object of the game is to have a hand of cards that adds up to 21.\n";
+	cout << "If you exceed 21, you lose. You are also supposed to get a score higher than\n";
+	cout << "that of the dealer. The dealer will stand when their hand score adds up to 17.\n";
+	cout << "This is accomplished by utilizing the value of the cards in the deck.\n";
+	cout << "Face cards - King, Queen, Jack - are all equal to 10.\n";
+	cout << "The Ace is equal to 1 or 11 depending on the total score of your hand. \n";
+	cout << "For instance, if you have an Ace and a 6, you have 17. Take another card, \n";
+	cout << "say a 5, the Ace reverts to a 1, giving you 12 to avoid a bust.\n";
+	cout << "\n";
+	system("pause");
+	cout << "\n";
+	cout << "A  bust occurs when your hand score exceeds 21. It is an automatic loss.\n";
+	cout << "\n";
+	cout << "To take another card, you will Hit. Basically, 'Hit me with another card.'\n";
+	cout << "In order to not take another card, if you are close to but under 21,\n";
+	cout << "you stand or stay.\n";
+	cout << "\n";
+	system("pause");
+	cout << "\n";
+	cout << "There are other rules for Blackjack that are used in this game.\n";
+	cout << "Double down allows a player to double their bet only when they have 2 cards\n";
+	cout << "in their hand. The player doubles their bet and accepts only one more card.\n";
+	cout << "In this game, doubling down will only double the current amount of the bet.\n";
+	cout << "\n";
+	system("pause");
+	cout << "\n";
+	cout << "There is also Splitting. Splitting occurs also when you only\n";
+	cout << "have 2 cards and allows a player to split a matching pair of \n";
+	cout << "cards to play them as independent hands, each with their own bet.\n";
+	cout << "\n";
+	cout << "Splitting does not currently function. There will be a patch later to remedy this.\n";
+	cout << "\n";
+	system("pause");
+	cout << "\n";
+	cout << "There is also a rule called Insurance. At current there is a lame attempt to \n";
+	cout << "implement this rule. Effectively, it causes you to break even on your original bet.\n";
+	cout << "If the dealer's shown card is an Ace, there is a chance that their face down card will be\n";
+	cout << "of value 10, giving them Blackjack.\n";
+	cout << "If this is the case, you can either tie and get your insurance bet, or the dealer \n";
+	cout << "does not have Blackjack and, you lose the insurance bet, and play the hand \n";
+	cout << "to win or lose your chips.\n";
+	cout << "\n";
+	cout << "Not sure if this is implemented correctly, however. Further patch to remedy this as well.\n";
+	cout << "\n";
+}
+
+void blackjack1player(int dealercardcount, int player1cardcount, int dealercards[], int player1cards[], player &playera)
+{
+	char again;
+	bool singleDeck[52],
+		playerthing;
+	int playerscore,
+		dealerscore,
+		hitOrStay,
+		chips,
+		insurebet;
+
+	cout << "Single Player Blackjack here.\n";
+	cout << "\n";
+	
+	do
+	{
+		playerscore = 0;
+		dealerscore = 0;
+		cardsdealt(singleDeck);
+		dealercards[0] = nextcard(singleDeck);
+		player1cards[0] = nextcard(singleDeck);
+		dealercards[1] = nextcard(singleDeck);
+		player1cards[1] = nextcard(singleDeck);
+		dealercardcount = 2;
+		player1cardcount = 2;
+		playerthing = true;
+		chips = bettingpool(playera);
+
+		do
+		{
+			cout << "My hand lies before me.\n";
+			displaycard(dealercards[0]);
+			cout << "\t**";
+			cout << " Ah-ah, only one card at a time.\n";
+			cout << "\n";
+			cout << "Let's see what you got there, " << playera.name << ".\n";
+			cout << "\n";
+			displayhand(player1cards, player1cardcount);
+			cout << "\n";
+			cout << "Your hand totals: ";
+			playerscore = scorehand(player1cards, player1cardcount);
+			cout << playerscore << "\n";
+			cout << "Would you like to:\n";
+			cout << "1. Hit\t\t2. Stand\t3. Split\n";
+			cout << "4. Double\t5. Insurance\n";
+			cout << "(As of now, Split does not function.)\n";
+			cin >> hitOrStay;
+			
+			if (hitOrStay == 1) //hit
+			{
+				player1cards[player1cardcount] = nextcard(singleDeck);
+				player1cardcount++;
+				playerthing = true;
+			}
+			else if (hitOrStay == 2) //stand
+				playerthing = false;
+			else if (hitOrStay == 3) //split
+			{
+				if (player1cards[0] == player1cards[1])
+				{
+					//split thing
+					player1cardcount++;
+					playerthing = true;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "Your first card has to be the same value as your second card.\n";
+					cout << "How about trying again?\n";
+					cout << "\n";
+				}
+			}
+			else if (hitOrStay == 4) //double
+			{
+				if (player1cardcount == 2)
+				{
+					chips = chips*2;
+					//double thing?
+					player1cardcount++;
+					player1cards[2] = nextcard(singleDeck);
+					playerthing = false;
+				}
+				else
+				{
+					cout << "\n";
+					cout << "You can only Double if you have 2 cards.\n";
+					cout << "How about trying again?\n";
+					cout << "\n";
+				}
+			}
+			else if (hitOrStay == 5) //insurance
+			{
+				int insurecheck = (dealercards[0] % 13);
+				if (insurecheck > 9 && insurecheck < 13)
+					insurebet = chips/2;
+				else
+					cout << "No insurance can be bet at this time.\n";
+				//insurance thing
+				playerthing = true;
+			}
+			else
+				cout << "Pick one of the given options, please.\n";
+			playerscore = scorehand(player1cards, player1cardcount);
+		} while (playerthing && playerscore < 22);
+
+		
+		if (playerscore > 21)
+		{
+			cout << "\nYou busted! Classic!\n";
+			cout << "Take a look at my hand: ";
+			displayhand(dealercards, dealercardcount);
+			cout << "\nMy final score was " << dealerscore << "\n";
+			cout << "Your final cards were: ";
+			displayhand(player1cards, player1cardcount);
+			cout << "\nYour final score was " << playerscore << "\n";
+			//tally here for losses
+			playera.losses += 1;
+			playera.gilchips -= chips;
+		}
+		else if (playerscore < 22)
+		{
+			dealerscore = scorehand(dealercards, dealercardcount);
+			while (dealerscore < 17)
+			{
+				dealercards[dealercardcount] = nextcard(singleDeck);
+				dealercardcount++;
+				dealerscore = scorehand(dealercards, dealercardcount);
+			}
+			if (dealerscore > 21)
+			{
+				cout << "\nYou won! Congrats.\n";
+				//tally for wins
+				playera.wins += 1;
+				playera.gilchips += chips;
+				cout << "Take a look at my hand: ";
+				displayhand(dealercards, dealercardcount);
+				cout << "\nMy final score was " << dealerscore << "\n";
+				cout << "Your final cards were: ";
+				displayhand(player1cards, player1cardcount);
+				cout << "\nYour final score was " << playerscore << "\n";
+			}
+			else if (dealerscore < 22)
+			{
+				if (playerscore > dealerscore)
+				{
+					cout << "\nYou won! Congrats.\n";
+					//tally for wins
+					playera.wins += 1;
+					playera.gilchips += chips;
+					cout << "Take a look at my hand: ";
+					displayhand(dealercards, dealercardcount);
+					cout << "\nMy final score was " << dealerscore << "\n";
+					cout << "Your final cards were: ";
+					displayhand(player1cards, player1cardcount);
+					cout << "\nYour final score was " << playerscore << "\n";
+				}
+				else if (playerscore == dealerscore)
+				{
+					cout << "\nSeems to be a tie...\n";
+					//tally for ties
+					if (dealercardcount == 2 && dealerscore == 21)
+					{
+						if (insurebet > 0)
+						{
+							playera.ties += 1;
+							playera.gilchips += insurebet;
+							playera.gilchips += chips;
+						}
+						
+					}
+					else
+					{
+						playera.ties += 1;
+						playera.gilchips += chips;
+					}
+					cout << "Take a look at my hand: ";
+					displayhand(dealercards, dealercardcount);
+					cout << "\nMy final score was " << dealerscore << "\n";
+					cout << "Your final cards were: ";
+					displayhand(player1cards, player1cardcount);
+					cout << "\nYour final score was " << playerscore << "\n";
+				}
+				else if (dealerscore > playerscore)
+				{
+					cout << "\nLooks to me like you lost this round.\n";
+					cout << "Allow me to take those Gil chips off your hands...\n";
+					//tally for losses
+					if (dealercardcount == 2 && dealerscore == 21)
+					{
+						if (insurebet > 0)
+						{
+							playera.losses += 1;
+							playera.gilchips += insurebet;
+							playera.gilchips -= chips;
+						}
+					}
+					else
+					{
+						playera.losses += 1;
+						playera.gilchips -= chips;
+					}
+					cout << "Take a look at my hand: ";
+					displayhand(dealercards, dealercardcount);
+					cout << "\nMy final score was " << dealerscore << "\n";
+					cout << "Your final cards were: ";
+					displayhand(player1cards, player1cardcount);
+					cout << "\nYour final score was " << playerscore << "\n";
+				}
+			}
+		}
+		
+		cout << "\n";
+		cout << "Would you like to stay for another hand?\n";
+		cout << "(Type Y for another hand.)\n";
+		cin >> again;
+		cout << "\n";
+	} while (toupper(again) == 'Y');
+
+}
+
+void blackjack2player(int dealercardcount, int player1cardcount, int player2cardcount,
+	int dealercards[], int player1cards[], int player2cards[], player &player1b, player &player2b)
+{
+	char again;
+	bool singleDeck[52],
+		playerthing;
+	int player1score,
+		player2score,
+		dealerscore,
+		hitOrStay,
+		chips,
+		insurebet1,
+		insurebet2;
+
+	cardsdealt(singleDeck);
+
+	do
+	{
+		player1score = 0;
+		player2score = 0;
+		dealerscore = 0;
+		cardsdealt(singleDeck);
+		dealercards[0] = nextcard(singleDeck);
+		player1cards[0] = nextcard(singleDeck);
+		player2cards[0] = nextcard(singleDeck);
+		dealercards[1] = nextcard(singleDeck);
+		player1cards[1] = nextcard(singleDeck);
+		player2cards[1] = nextcard(singleDeck);
+		dealercardcount = 2;
+		player1cardcount = 2;
+		player2cardcount = 2;
+		playerthing = true;
+		chips = bettingpool(player1b);
+		chips = bettingpool(player2b);
+		for (int count = 1; count <=2; count++)
+		{
+			if (count == 1)
+			{
+				do
+				{
+					cout << "My hand lies before me.\n";
+					displaycard(dealercards[0]);
+					cout << "\t**";
+					cout << " Ah-ah, only one card at a time.\n";
+					cout << "Let's see what you got there, " << player1b.name << ".\n";
+					displayhand(player1cards, player1cardcount);
+					cout << "\n";
+					cout << "Your hand totals: ";
+					player1score = scorehand(player1cards, player1cardcount);
+					cout << player1score << "\n";
+					cout << "Would you like to:\n";
+					cout << "1. Hit\t\t2. Stand\t3. Split\n";
+					cout << "4. Double\t5. Insurance\n";
+					cout << "(As of now, Split does not function.)\n";
+					cin >> hitOrStay;
+			
+					if (hitOrStay == 1) //hit
+					{
+						player1cards[player1cardcount] = nextcard(singleDeck);
+						player1cardcount++;
+						playerthing = true;
+					}
+					else if (hitOrStay == 2) //stand
+						playerthing = false;
+					else if (hitOrStay == 3) //split
+					{
+						if (player1cards[0] == player1cards[1])
+						{
+							//split thing
+							player1cardcount++;
+							playerthing = true;
+						}
+						else
+						{
+							cout << "\n";
+							cout << "Your first card has to be the same value as your second card.\n";
+							cout << "How about trying again?\n";
+							cout << "\n";
+						}
+						if (player1score > 21)
+							playerthing = false;
+					}
+					else if (hitOrStay == 4) //double
+					{
+						if (player1cardcount == 2)
+						{
+							chips = chips*2;
+							//double thing?
+							player1cardcount++;
+							player1cards[2] = nextcard(singleDeck);
+							playerthing = false;
+						}
+						else
+						{
+							cout << "\n";
+							cout << "You can only Double if you have 2 cards.\n";
+							cout << "How about trying again?\n";
+							cout << "\n";
+						}
+						if (player1score > 21)
+							playerthing = false;
+					}
+					else if (hitOrStay == 5) //insurance
+					{
+						int insurecheck = (dealercards[0] % 13);
+						if (insurecheck > 9 && insurecheck < 13)
+							insurebet1 = chips/2;
+						else
+							cout << "No insurance can be bet at this time.\n";
+						//insurance thing
+						playerthing = true;
+					}
+					else
+						cout << "Pick one of the given options, please.\n";
+					player1score = scorehand(player1cards, player1cardcount);
+				} while (playerthing && player1score < 22);
+		}
+		else
+			{
+				do
+				{
+					cout << "My hand lies before me.\n";
+					displaycard(dealercards[0]);
+					cout << "\t**";
+					cout << " Ah-ah, only one card at a time.\n";
+					cout << "Let's see what you got there, " << player2b.name << ".\n";
+					displayhand(player2cards, player2cardcount);
+					cout << "\n";
+					cout << "Your hand totals: ";
+					player2score = scorehand(player2cards, player2cardcount);
+					cout << player2score << "\n";
+					cout << "Would you like to:\n";
+					cout << "1. Hit\t\t2. Stand\t3. Split\n";
+					cout << "4. Double\t5. Insurance\n";
+					cout << "(As of now, Split does not function.)\n";
+					cin >> hitOrStay;
+			
+					if (hitOrStay == 1) //hit
+					{
+						player2cards[player2cardcount] = nextcard(singleDeck);
+						player2cardcount++;
+						playerthing = true;
+					}
+					else if (hitOrStay == 2) //stand
+						playerthing = false;
+					else if (hitOrStay == 3) //split
+					{
+						if (player2cards[0] == player2cards[1])
+						{
+							//split thing
+							player2cardcount++;
+							playerthing = true;
+						}
+						else
+						{
+							cout << "\n";
+							cout << "Your first card has to be the same value as your second card.\n";
+							cout << "How about trying again?\n";
+							cout << "\n";
+						}
+					}
+					else if (hitOrStay == 4) //double
+					{
+						if (player2cardcount == 2)
+						{
+							chips = chips*2;
+							//double thing?
+							player2cardcount++;
+							player2cards[2] = nextcard(singleDeck);
+							playerthing = false;
+						}
+						else
+						{
+							cout << "\n";
+							cout << "You can only Double if you have 2 cards.\n";
+							cout << "How about trying again?\n";
+							cout << "\n";
+						}
+					}
+					else if (hitOrStay == 5) //insurance
+					{
+						int insurecheck = (dealercards[0] % 13);
+						if (insurecheck == 0)
+							insurebet2 = chips/2;
+						else
+							cout << "No insurance can be bet at this time.\n";
+						//insurance thing
+						playerthing = true;
+					}
+					else
+						cout << "Pick one of the given options, please.\n";
+					player2score = scorehand(player2cards, player2cardcount);
+				} while (playerthing && player2score < 22);
+			}
+		}
+
+		dealerscore = scorehand(dealercards, dealercardcount);
+			while (dealerscore < 17)
+			{
+				dealercards[dealercardcount] = nextcard(singleDeck);
+				dealercardcount++;
+				dealerscore = scorehand(dealercards, dealercardcount);
+			}
+
+		for (int count = 1; count <=2; count++)
+		{
+			if (count == 1)
+			{
+				if (player1score > 21)
+					{
+						cout << "\nYou busted! Classic!\n";
+						cout << "Take a look at my hand: ";
+						displayhand(dealercards, dealercardcount);
+						cout << "\nMy final score was " << dealerscore << "\n";
+						cout << "Your final cards were: ";
+						displayhand(player1cards, player1cardcount);
+						cout << "\nYour final score was " << player1score << "\n";
+						//tally here for losses
+						player1b.losses += 1;
+						player1b.gilchips -= chips;
+					}
+					else if (player1score < 22)
+					{
+						if (dealerscore > 21)
+						{
+							cout << "\nYou won! Congrats.\n";
+							//tally for wins
+							player1b.wins += 1;
+							player1b.gilchips += chips;
+							cout << "Take a look at my hand: ";
+							displayhand(dealercards, dealercardcount);
+							cout << "\nMy final score was " << dealerscore << "\n";
+							cout << "Your final cards were: ";
+							displayhand(player1cards, player1cardcount);
+							cout << "\nYour final score was " << player1score << "\n";
+						}
+						else if (dealerscore < 22)
+						{
+							if (player1score > dealerscore)
+							{
+								cout << "\nYou won! Congrats.\n";
+								//tally for wins
+								player1b.wins += 1;
+								player1b.gilchips += chips;
+								cout << "Take a look at my hand: ";
+								displayhand(dealercards, dealercardcount);
+								cout << "\nMy final score was " << dealerscore << "\n";
+								cout << "Your final cards were: ";
+								displayhand(player1cards, player1cardcount);
+								cout << "\nYour final score was " << player1score << "\n";
+							}
+							else if (player1score == dealerscore)
+							{
+								cout << "\nSeems to be a tie...\n";
+								//tally for ties
+								if (dealercardcount == 2 && dealerscore == 21)
+								{
+									if (insurebet1 > 0)
+									{
+										player1b.ties += 1;
+										player1b.gilchips += insurebet1;
+										player1b.gilchips += chips;
+									}
+								}
+								else
+								{
+									player1b.ties += 1;
+									player1b.gilchips += chips;
+								}
+								cout << "Take a look at my hand: ";
+								displayhand(dealercards, dealercardcount);
+								cout << "\nMy final score was " << dealerscore << "\n";
+								cout << "Your final cards were: ";
+								displayhand(player1cards, player1cardcount);
+								cout << "\nYour final score was " << player1score << "\n";
+							}
+							else if (dealerscore > player1score)
+							{
+								cout << "\nLooks to me like you lost this round.\n";
+								cout << "Allow me to take those Gil chips off your hands...\n";
+								//tally for losses
+								if (dealercardcount == 2 && dealerscore == 21)
+								{
+									if (insurebet1 > 0)
+									{
+										player1b.losses += 1;
+										player1b.gilchips += insurebet1;
+										player1b.gilchips -= chips;
+									}
+								}
+								else
+								{
+									player1b.losses += 1;
+									player1b.gilchips -= chips;
+								}
+								cout << "Take a look at my hand: ";
+								displayhand(dealercards, dealercardcount);
+								cout << "\nMy final score was " << dealerscore << "\n";
+								cout << "Your final cards were: ";
+								displayhand(player1cards, player1cardcount);
+								cout << "\nYour final score was " << player1score << "\n";
+							}
+						}
+					}
+			} //player 1 score
+			else
+			{
+				if (player2score > 21)
+					{
+						cout << "\nYou busted! Classic!\n";
+						cout << "Take a look at my hand: ";
+						displayhand(dealercards, dealercardcount);
+						cout << "\nMy final score was " << dealerscore << "\n";
+						cout << "Your final cards were: ";
+						displayhand(player2cards, player2cardcount);
+						cout << "\nYour final score was " << player2score << "\n";
+						//tally here for losses
+						player2b.losses += 1;
+						player2b.gilchips -= chips;
+					}
+					else if (player2score < 22)
+					{
+						if (dealerscore > 21)
+						{
+							cout << "\nYou won! Congrats.\n";
+							//tally for wins
+							player2b.wins += 1;
+							player2b.gilchips += chips;
+							cout << "Take a look at my hand: ";
+							displayhand(dealercards, dealercardcount);
+							cout << "\nMy final score was " << dealerscore << "\n";
+							cout << "Your final cards were: ";
+							displayhand(player2cards, player2cardcount);
+							cout << "\nYour final score was " << player2score << "\n";
+						}
+						else if (dealerscore < 22)
+						{
+							if (player2score > dealerscore)
+							{
+								cout << "\nYou won! Congrats.\n";
+								//tally for wins
+								player2b.wins += 1;
+								player2b.gilchips += chips;
+								cout << "Take a look at my hand: ";
+								displayhand(dealercards, dealercardcount);
+								cout << "\nMy final score was " << dealerscore << "\n";
+								cout << "Your final cards were: ";
+								displayhand(player2cards, player2cardcount);
+								cout << "\nYour final score was " << player2score << "\n";
+							}
+							else if (player2score == dealerscore)
+							{
+								cout << "\nSeems to be a tie...\n";
+								//tally for ties
+								if (dealercardcount == 2 && dealerscore == 21)
+								{
+									if (insurebet2 > 0)
+									{
+										player2b.losses += 1;
+										player2b.gilchips += insurebet2;
+										player2b.gilchips -= chips;
+									}
+								}
+								else
+								{
+									player2b.losses += 1;
+									player2b.gilchips -= chips;
+								}
+								cout << "Take a look at my hand: ";
+								displayhand(dealercards, dealercardcount);
+								cout << "\nMy final score was " << dealerscore << "\n";
+								cout << "Your final cards were: ";
+								displayhand(player2cards, player2cardcount);
+								cout << "\nYour final score was " << player2score << "\n";
+							}
+							else if (dealerscore > player2score)
+							{
+								cout << "\nLooks to me like you lost this round.\n";
+								cout << "Allow me to take those Gil chips off your hands...\n";
+								//tally for losses
+								if (dealercardcount == 2 && dealerscore == 21)
+								{
+									if (insurebet2 > 0)
+									{
+										player2b.losses += 1;
+										player2b.gilchips += insurebet2;
+										player2b.gilchips -= chips;
+									}
+								}
+								else
+								{
+									player2b.losses += 1;
+									player2b.gilchips -= chips;
+								}
+								cout << "Take a look at my hand: ";
+								displayhand(dealercards, dealercardcount);
+								cout << "\nMy final score was " << dealerscore << "\n";
+								cout << "Your final cards were: ";
+								displayhand(player2cards, player2cardcount);
+								cout << "\nYour final score was " << player2score << "\n";
+							}
+						}
+					}
+			}
+		}
+		
+		cout << "\n";
+		cout << "Would you like to stay for another hand?\n";
+		cout << "(Type Y for another hand.)\n";
+		cin >> again;
+		cout << "\n";
+	} while (toupper(again) == 'Y');
+
+}
+
+player nameretrieval()
+{
+	player playera;
+	string name,
+		password;
+	bool found = false;
+
+	users.close();
+	users.open("highscores.txt");
+
+	cout << "Everything here is case-sensitive.\n";
+
+	cout << "So tell me, what is your name?\n";
+	cin >> name;
+
+	while(users >> playera.name)
+	{
+		users >> playera.password;
+		users >> playera.wins;
+		users >> playera.losses;
+		users >> playera.ties;
+		users >> playera.gilchips;
+
+		if (name == playera.name)
+		{
+			found = true;
+			break;
+		}
+		if (found == true)
+			break;
+	}
+
+	//search for the name. if it exists, pull information
+	//if the name does not exist, put in default information
+	playera.name = name;
+
+	cout << "Please enter in a password that will be a unique identifier for you.\n";
+	cin >> password;
+	//verify password
+	
+	if (password == playera.password)
+		found = true;
+
+	if (found == false)
+	{
+		playera.gilchips = 1000;
+		playera.wins = 0;
+		playera.losses = 0;
+		playera.ties = 0;
+	}
+
+	playera.password = password;
+
+	return playera;
+}
+
+void cardsdealt(bool singleDeck[])
+{
+	for (int count = 0; count < 52; count++)
+	{
+		singleDeck[count] = false;
+	}
+}
+
+int nextcard(bool singleDeck[])
+{
+	bool dealt = true;
+	int newcard = -1;
+	do
+	{
+		newcard = (rand() % 52);
+		if (!singleDeck[newcard])
+		{
+			dealt = false;
+		}
+	} while (dealt);
+	return newcard;
+}
+
+void displayhand(int playerhand[], const int playercardcount) {
+	for (int count = 0; count < playercardcount; count++)
+	{
+		const int newcard = playerhand[count];
+		displaycard(newcard);
+		cout << "\t";
+	}
+	cout << "\n";
+}
+
+void displaycard(int card) {
+	const int cardrank = (card % 13);
+	if (cardrank == 0)
+	{
+		cout << "Ace";
+	} 
+	else if (cardrank < 10) 
+	{
+		cout << (cardrank + 1);
+	} 
+	else if (cardrank == 11) 
+	{
+		cout << "Jack - 10";
+	} 
+	else if (cardrank == 12)
+	{
+		cout << "Queen - 10";
+	} 
+	else 
+	{
+		cout << "King - 10";
+	}
+}
+
+int scorehand(int playerhand[], const int playercardcount) 
+{
+	int acecount = 0;
+	int handscore = 0;
+	for (int count = 0; count < playercardcount; count++) 
+	{
+		const int nextcard = playerhand[count];
+		const int cardrank = (nextcard % 13);
+		if (cardrank == 0) 
+		{
+			acecount++;
+			handscore++;
+		} 
+		else if (cardrank < 9) {
+			handscore = handscore + (cardrank+1);
+		} 
+		else 
+		{
+			handscore = handscore + 10;
+		}
+	}
+	while (acecount > 0 && handscore < 12) 
+	{
+		acecount--;
+		handscore = handscore + 10;
+	}
+	return handscore;
+}
+
+int bettingpool(player playerb)
+{
+	int betamount,
+		chips;
+	//make this into a betting function
+	cout << "\n";
+	cout << "The first order of business is to place a bet.\n";
+	cout << "You current Gil amount is " << playerb.gilchips << "gil.\n";
+	cout << "Please bet one of the below amounts, " << playerb.name << ".\n";
+	cout << "1. 5gil\t\t2. 10gil\t3. 20gil\n";
+	cout << "4. 25gil\t5. 50gil\n";
+	cin >> betamount;
+	cout << "\n";
+
+	switch (betamount)
+	{
+	case 1:
+		{
+			chips = 5;
+			break;
+		}
+	case 2:
+		{
+			chips = 10;
+			break;
+		}
+	case 3:
+		{
+			chips = 20;
+			break;
+		}
+	case 4:
+		{
+			chips = 25;
+			break;
+		}
+	case 5:
+		{
+			chips = 50;
+			break;
+		}
+	}
+	return chips;
+}

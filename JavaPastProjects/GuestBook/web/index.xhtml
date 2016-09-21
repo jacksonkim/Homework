@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+   <h:head>
+      <title>GuestBook</title>
+   </h:head>
+   <h:body>
+      <h:form>
+         <h1>GuestBook Entry</h1>
+         <p>Leave a message for posterity!<br />Fill in all fields and click Sign.</p>
+         
+            Name:
+            <h:inputText id="nameInputText" required="true"
+               requiredMessage="Please enter your name"
+               value="#{guestBookBean.name}"
+               validatorMessage="Name must be fewer than 30 characters">
+               <f:validateLength maximum="30" />
+            </h:inputText>
+            <h:message for="nameInputText" styleClass="error"/>
+
+            <br/><br/>
+            Email: 
+            <h:inputText id="emailInputText" required="true"
+               requiredMessage="Please enter a valid e-mail address"
+               value="#{guestBookBean.email}"
+               validatorMessage="Invalid e-mail address format">
+               <f:validateRegex pattern=
+                  "\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" />
+            </h:inputText>
+            <h:message for="emailInputText" styleClass="error"/>
+            <br/><br/>
+            Message: 
+            <h:inputTextarea id="messageInputText" required="true"
+               requiredMessage="Please enter a valid message"
+               value="#{guestBookBean.message}"
+               validatorMessage="Invalid message format">
+            </h:inputTextarea>
+            <h:message for="messageInputText" styleClass="error"/>
+            
+         <h:commandButton value="Sign"/>
+         <h:outputText escape="false" value="#{guestBookBean.result}"/>
+      </h:form>
+   </h:body>
+</html>

@@ -1,0 +1,68 @@
+Program 1:
+
+Class name: Customer
+Private class variables - String type: lastName, firstName, emailAddress
+Constructor: Customer(String lastName, String firstName, String emailAddress)
+Methods: set and get for all  class variables
+
+---------------------------------------------------------
+
+Class name: FileHandling
+Constructor: FileHandling()
+Private class variables - optional - you decide
+
+Required public method: void addCustomers(ArrayList<Customer> al, String filePath)
+- this public method will add/save new customer(s) to a file
+- filePath variable stores the location where the file is located so the program can use to save the data to
+- make sure the file connection(s) are opened and closed properly and design the class structure any way that you prefer and feel free to add as many private variables and methods as needed but the neccessary to get the job done, but only the required public method listed here is going to be used for testing and grading
+
+Required public method: void retrieveCustomerData(String filePath)
+- filePath variable stores the location where the file is located so the program can use to retrieve the data from
+- the public method will retrieve and display customer information of ALL customers on the screen by reading data stored in a file specified by the filePath variable - customer name and email address information will be displayed as output on the screen
+- make sure the file connection(s) are opened and closed properly and design the class structure any way that you prefer and feel free to add as many private variables and methods as needed but the neccessary to get the job done, but only the required public method listed here is going to be used for testing and grading
+
+-----------------------------------------------------------
+
+* Use/include the following code in the main method of the program for object creation and storing / retrieving data.
+
+// Object creation:
+Customer customer1 = new Customer("John","Smith","js@js.com);
+Customer customer2 = new Customer("Elizabeth","Johnson","ej@abc.com);
+customer2.setFirstName("Beth");
+customer2.setLastName("Johnson-Lopez");
+customer2.setEmailAddress("bjl@abc.com");
+
+// Storing object(s) to file:
+FileHandling fh = new FileHandling();
+ArrayList<Customer> al = new ArrayList<Customer>();
+al.add(customer1);
+al.add(customer2);
+fh.addCustomers(al,"customer.dat");
+
+// Retrieving stored data:
+fh.retrieveCustomerData("customer.dat");
+
+-----------------------------------------------------------
+ 
+Program 2:
+
+Class name: NumberTranslate
+Constructor: NumberFinder(String fileLocation)
+- fileLocation variable stores the location where the file is located so the program can use to save the data to
+Private class variables: String fileLocation - add more if you need to
+
+Required public method: void translateAndStore(String phoneNumber)
+- phoneNumber stores a seven-digit long string
+- if the string is not 7 digit, then prints a message that says 'invalid phone number provided'
+- find all possible character combinations that the phoneNumber string can have and store them all in a text file (that's readable by human)
+- use fileLocation as the storage location
+- use the table on bottom of page 763 and the information described on that page as a guide
+
+------------------------------------------------------------
+
+* Use/include the following code in the main method of the program to test the data.
+
+NumberTranslate nt = new NumberTranslate("all_combinations.txt");
+nt.translateAndStore("934-6489");
+
+// To test to see if the translateAndStore method is set up and working correctly, open the 'all_combinations.txt' file and search (Ctrl F) for 'xfinity'. It should exists in the file along with other combinations. Assume that phone numbers contain zeroes and/or ones will not be used.

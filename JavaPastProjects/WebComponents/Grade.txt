@@ -1,0 +1,14 @@
+Grade   93
+
+Error messages missplaced          -5 points
+
+Placement of error messages inconsistent.
+First name and last name error messages 
+are placed at bottom of form where 
+email and telephone error messages are 
+placed next to input fields in form.
+
+No error message for OS            -2 points
+
+OS is a required field and should 
+hava a message.

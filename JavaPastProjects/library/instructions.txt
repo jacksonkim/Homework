@@ -1,0 +1,23 @@
+A library needs to keep track of its books.  Write a class called 
+Book to hold information on a book.  Various attributes of a book 
+are its title, author(allow up to four authors), ISBN number, 
+publisher, copyright date, price, etc.  Include all appropriate 
+accessor and mutator methods (get & set).  Include a boolean to 
+determine if the book is checked out or available in the library.  
+Override the Object methods appropriately (equals, hashCode, toString, 
+etc.).  Include a copy constructor along with all appropriate 
+constructors.  Include a static member called nBooks which will be 
+used to keep up with the total number of instances of Book you have 
+in the library.  Write a test program that will create at least 10 
+books, copying at least one.
+
+Display the number of books at the beginning of the program (should be zero). 
+After each book is created display the total number of instances of 
+Book existing at that time. Test checking out books and checking in books. 
+Display a list of all the books showing which ones are checked out.  Use the 
+equals method to discover and remove the copied book(s) (this can be 
+done by setting the variable to be = null; you can also implement/override 
+the finalize method to get the garbage collector to take care fo this - 
+see textbook for more information).  Add up the total cost of all of the 
+books in the library.  At the end display the number of instances of book 
+before exiting the test program.

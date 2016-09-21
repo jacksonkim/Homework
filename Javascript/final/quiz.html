@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Cyn's Obscure Protoman Corner</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	
+	<style>
+		body {background-color: gray;
+			font-family: Segoe UI, sans-serif;
+			font-size: 11pt;
+			color: #FFFFFF;}
+		h1 {text-align:center;}
+		a:link { color:#CC99CC;}
+		a:hover {color:#CC99CC;}
+		a: visited {color:#FFFFFF;}
+		
+		#leftProto
+		{
+			float: left;
+			text-align: center;
+			width: 310px;
+		}
+		#rightProto
+		{	
+			float:left;
+			margin-left: 10px;
+		}
+	</style>
+	
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		var protomen = new Array(16);
+		var beamProto = 0;
+		var curProto = 7;
+		var beam, begin;
+		
+		var shotCount = 0;
+		
+		protomen[0] = "proto/proto0.png";
+		protomen[1] = "proto/proto1.png";
+		protomen[2] = "proto/proto2.png";
+		protomen[3] = "proto/proto3.png";
+		protomen[4] = "proto/proto4.png";
+		protomen[5] = "proto/proto5.png";
+		protomen[6] = "proto/proto6.png";
+		protomen[7] = "proto/proto7.png";
+		protomen[8] = "proto/proto8.png";
+		protomen[9] = "proto/proto9.png";
+		protomen[10] = "proto/proto10.png";
+		protomen[11] = "proto/proto11.png";
+		protomen[12] = "proto/proto12.png";
+		protomen[13] = "proto/proto13.png";
+		protomen[14] = "proto/proto14.png";
+		protomen[15] = "proto/proto15.png";
+		
+		function beamIn()
+		{			
+			
+			if(beamProto == 6)
+			{
+				beamProto = 0;
+				clearInterval(beam);
+				document.getElementsByTagName("img")[0].src = protomen[curProto].src;
+				document.getElementsByTagName("img")[0].src = protomen[curProto];				
+			}
+			else
+			{
+				document.getElementsByTagName("img")[0].src = protomen[beamProto].src;			
+				document.getElementsByTagName("img")[0].src = protomen[beamProto];
+				++beamProto;
+			}			
+		}
+		
+		function startBeam()
+		{
+			document.getElementsByTagName("img")[0].style.visibility = "visible";
+			if (beam)
+				clearInterval(beam);
+			beam = setInterval("beamIn()", 75);
+		}
+		
+		function shoot()
+		{
+			if (curProto == 15)
+			{
+				curProto = 7;
+				clearInterval(begin);
+				document.getElementsByTagName("img")[0].src = protomen[curProto].src;
+				document.getElementsByTagName("img")[0].src = protomen[curProto];
+			}
+			else
+			{				
+				document.getElementsByTagName("img")[0].src = protomen[curProto].src;			
+				document.getElementsByTagName("img")[0].src = protomen[curProto];
+				++curProto;
+			}
+		}
+		
+		function startShooting()
+		{
+			document.getElementsByTagName("img")[0].style.visibility = "visible";
+			if (begin)
+				clearInterval(begin);
+			begin = setInterval("shoot()", 75);
+			
+		}
+		
+		function shotCounter()
+		{
+			document.protoForm.shotCounterShow.value = shotCount;
+		}
+		
+		function quizResult()
+		{
+			var total = 0;
+			for(var count = 0; count < document.forms[1].creator.length; count++)
+			{
+				if(document.forms[1].creator[count].checked)
+				{
+					if(document.forms[1].creator[count].value == "light")
+					{
+						total += parseInt(20);
+					}
+				}
+			}
+			
+			for(var count = 0; count < document.forms[1].roam.length; count++)
+			{
+				if(document.forms[1].roam[count].checked)
+				{
+					if(document.forms[1].roam[count].value == "core")
+					{
+						total += parseInt(20);
+					}
+				}
+			}
+			
+			for(var count = 0; count < document.forms[1].repair.length; count++)
+			{
+				if(document.forms[1].repair[count].checked)
+				{
+					if(document.forms[1].repair[count].value == "wily")
+					{
+						total += parseInt(20);
+					}
+				}
+			}
+			
+			for(var count = 0; count < document.forms[1].siblings.length; count++)
+			{
+				if(document.forms[1].siblings[count].checked)
+				{
+					if(document.forms[1].siblings[count].value == "megaman" || document.forms[1].siblings[count].value == "roll")
+					{
+						total += parseInt(20);
+					}
+				}
+			}
+			
+			if(total > 90)
+				window.alert("Fantastic " + document.forms[1].name.value + "! You got a perfect score of " + total + "!");
+			else if (total > 70)
+				window.alert("Good job " + document.forms[1].name.value + "! I wonder if the trick question slipped you up... Your score was " + total + ".");
+			else if (total > 50)
+				window.alert("Feel free to try again, " + document.forms[1].name.value + "! But at least your score was " + total + ".");
+			else if (total > 30)
+				window.alert("You knew something, " + document.forms[1].name.value + "! That netted you a score of " + total + ".");
+			else if (total > 0)
+				window.alert("Good try " + document.forms[1].name.value + "! You got a score of " + total + ".");
+			else
+				window.alert("Uh, " + document.forms[1].name.value + ", why did you come here if you didn't read the material first? You ended up with a score of " + total + ".");
+		}
+		
+		function colors1(text)
+		{
+			text.style.background = "yellow";
+		}
+		function colors2(text)
+		{
+			text.style.background = "red";
+		}
+	/* ]]> */
+	</script>
+</head>
+
+<body>
+	<h1>How much do you remember?</h1>
+	<div id="leftProto">
+		<img src="" height="300" width="300" id="leftProto" style="visibility:hidden;" />
+		<form name="protoForm" action="">		
+			<p><input type="button" value="Beam here" onclick="startBeam();" />
+			<input type="button" value="Shoot" id="lemons" onclick="startShooting(); ++shotCount; shotCounter();" />
+			<br /> Protoman has shot <br /><input type="text" name="shotCounterShow" size="1" /> <br />times from his blaster.</p>		
+		</form>
+	</div>
+	
+	<div id="rightProto">
+		<form action="">
+			<p>What is the name of Protoman's creator?<br />
+				<input type="radio" name="creator" value="wily" />Dr. Albert Wily<br />
+				<input type="radio" name="creator" value="light" />Dr. Thomas Light<br />
+				<input type="radio" name="creator" value="emily" />Emily Stanton<br />
+				<input type="radio" name="creator" value="rush" />Rush<br /></p>
+			<p>Why did he roam the countryside?<br />
+				<input type="radio" name="roam" value="core" />Unstable Core<br />
+				<input type="radio" name="roam" value="music" />Discover music<br />
+				<input type="radio" name="roam" value="girls" />Ladies, please<br />
+				<input type="radio" name="roam" value="rush" />Rush<br /></p>
+			<p>Who ended up fixing him up later?<br />
+				<input type="radio" name="repair" value="wily" />Dr. Albert Wily<br />				
+				<input type="radio" name="repair" value="emily" />Emily Stanton<br />
+				<input type="radio" name="repair" value="light" />Dr. Thomas Light<br />
+				<input type="radio" name="repair" value="rush" />Rush<br /></p>
+				<p>Now for the trick question!</p>
+			<p>Doctor Light made a couple robots after Protoman that were humanoid. Who were they?<br />
+				<input type="checkbox" name="siblings" value="tango" />Tango<br />
+				<input type="checkbox" name="siblings" value="megaman" />Megaman<br />
+				<input type="checkbox" name="siblings" value="roll" />Roll<br />				
+				<input type="checkbox" name="siblings" value="rush" />Rush<br /></p>
+			<p>Your name: <input type="text" name="name" onfocus="colors1(this);" onblur="colors2(this);"/></p>
+			<p><input type="button" value="How'd I do?" onclick="quizResult();" /></p>
+		</form>
+	</div>	
+</body>
+</html>

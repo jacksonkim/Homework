@@ -1,0 +1,24 @@
+Write a program that keeps asking user to enter employee 
+contact information (first name, last name, phone number, age) 
+until the user chooses 'no' to stop the program. Each round 
+of input provided by the user needs to be stored in a database 
+(use Derby). Add an ID_number field when storing each new 
+employee record in the database. The ID_number field starts 
+at 1 and increment by 1 each time a new employee is added 
+(use Java code logic to accomplish this instead of setting 
+unique constraint and auto increment when creating the table - 
+Constraint and auto increment topics may be introduced in 
+future assignments). Check each input to make sure that the 
+combination of first and last name cannot be stored in the 
+database twice. When the user chooses to stop the program. 
+The program should retrieve all employee records from 
+database and display that report/list on the screen.
+
+* Use the database structure requirements below so 
+your source code can be tested using your instructor's database setup for grading purpose.
+
+Database name: EmployeeDB
+
+Table name: Employee
+
+Table fields: ID_number - int, firstName - varchar(20), lastName - varchar(20), phoneNumber - varchar(10), age - int

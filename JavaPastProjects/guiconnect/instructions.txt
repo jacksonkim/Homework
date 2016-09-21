@@ -1,0 +1,10 @@
+Use the code demonstrated in the video recordings to create a GUI program
+(that has 3 windows to interact with the user) and add the functionality 
+to interact with the the database. Rename Option 1 of the dropdown menu of 
+fr_3 window to View Records. Add code so this option will retrieve all data 
+from database and display it in the fr3_ta textarea box. Rename Option 2 to 
+Sort By Age and this option will retrieve records from database and display
+all records in the fr3_ta textarea box order by employee age in ascending order.
+
+A Derby database needs to be created using the following names. 
+Database name: EmployeeDB. Table name: EmployeeTB. Fields: e_name, e_age

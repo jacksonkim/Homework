@@ -1,0 +1,42 @@
+﻿C++ Programming II Midterm Project - CSU Database
+
+This midterm project is meant to utilize the skills that you acquired over the first half of the semester. You have been contracted by a small college named CSU that would like for you to implement a custom software system for managing students data. As a prototype you decided to show them a menu driven example. Your menu driven example has the following features:
+
+A) Show/Edit student information
+B) Add courses to student schedule
+C) Remove courses from student schedule
+D) Display the entire university (alphabetical by last name)
+E) Search for student by first name or last name
+F) Access to the database requires a user account and password authentication
+
+* Who is the user? The user of your system is the registrar/administrators. It is NOT intended to be used by students to access their records. Therefore, you only need a few login ids such as registrar, deans, etc.
+
+* Menus: It is your responsibility to develop your own menu structure. You must make sure that all features are available on the menu. 
+
+* Files: All student data must be stored in the file system. You may use any file organization. Files can only be read at the start of the program and before the program exits. 
+
+* Classes: Your software is designed using at least three classes: Student, Undergraduate (inherits from Student), and Graduate (inherits from Student).
+You are encouraged to include other classes as you deem necessary to make exploit the most reasonable OO design.
+
+* C++ Features: You should incorporate as much as is reasonable from the first half of the semester: classes, constructors, destructors, setters/getters, inheritance, polymorphism, operator overloading, exceptions, templates, etc. Of course any topics from C++ I may also be used.
+
+The Student class provides the basic framework for creating subclasses. It will contain the following attributes:
+    ⁃    First and Last Name of the student
+    ⁃    Student ID (9 digits, starting with the number 900)
+    -    Major
+    ⁃    Current class schedule
+    ⁃    Current enrolled course hours
+
+The Undergraduate class has at least the following responsibilities:
+    ⁃    The student's classification: Freshman, Sophomore, Junior, Senior
+
+The Graduate class has at least the following responsibilities:
+    ⁃    The Degree type: Specialist, Master, Doctorate
+    ⁃    Thesis Topic
+
+
+Notice that the requirements are minimal requirements. This is because the students records management has some basic requirements. But as a software developer, you may see the need to add data and/or features.
+
+10% Design Document
+20% Style and comments
+70% Usability, error checking, and performance of each menu function

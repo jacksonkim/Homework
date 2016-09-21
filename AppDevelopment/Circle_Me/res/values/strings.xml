@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Circle_Me</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="circumText">"Circumference: "</string>
+    <string name="areaText">"Area: "</string>
+    <string name="buttonText">Calculate</string>
+    <string name="hintBox">Enter a circle\'s radius</string>
+
+</resources>

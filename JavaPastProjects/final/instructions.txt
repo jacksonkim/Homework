@@ -1,0 +1,27 @@
+1. GUI box with 2 textfields to allow user to enter username/password, 
+1 button to submit data, 1 button to exit program, and 1 textarea to display data
+
+2. when the program runs, it waits for the user to enter a username and password. 
+If the username/password entered matches one of the records in the database, 
+then the program will retrieve all usernames and passwords in database and display 
+them all in the textarea (sorted by username ascending order).
+
+3. after a valid username/password record has been entered (one that exists in database), 
+the program now allows the user to add more username/password records to the database 
+and display them all (by refreshing the data in the textarea with new data retrieved 
+from the database).
+
+4. but, if an valid username/password record is provided by the user, then the program 
+also stores all the invalid username/password records in a .txt file (append) as log 
+information that can be used for security enhancement plans in the future. The data stored 
+in the .txt file should be readable when open the file (use coma or tab delimiter)
+
+5.Derby database and file setup
+
+Database name - LoginDB
+Table name - LoginTB
+Fields - u_name, p_word - both should be varchar(20)
+
+Log file set up:
+invalid_attempts.txt - put the .txt file in the same directory as all the .java files - 
+use relative path instead of absolute (this means no path such as 'c:\\ ...' should be used)

@@ -1,0 +1,10 @@
+Design and implement your own linked list class of strings (this should not be a class template). The class should have the following methods:
+
+•append : adds  a new element to the end of the list
+•insert: adds a new element at a position in the list. The position is an integer value (not an iterator).
+•delete: deletes a node at a given position. The position is an integer value. 
+•constructor & copy constructor
+•destructor: must delete all of the nodes
+Your linked list can be either a singly-linked list or doubly-linked list. There is a singly-linked list shown in your book and we discussed a doubly-linked list in class.
+
+You will also need to build a driver program that demonstrates the use of all of these methods. NOTE: You can force a destructor call by building a function that creates a list object as a local variable. When the function is called and finishes, the destructor for that local list object will be called. 

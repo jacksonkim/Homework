@@ -1,0 +1,22 @@
+﻿Build started 10/9/2012 9:32:41 AM.
+     1>Project "C:\Users\Kim\Downloads\School\C++ 2\CSU Database - Midterm\CSU Database - Midterm\CSU Database - Midterm.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\CSU Database - Midterm.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt "CSU Database.cpp"
+         CSU Database.cpp
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Kim\Downloads\School\C++ 2\CSU Database - Midterm\Debug\CSU Database - Midterm.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Kim\Downloads\School\C++ 2\CSU Database - Midterm\Debug\CSU Database - Midterm.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Kim\Downloads\School\C++ 2\CSU Database - Midterm\Debug\CSU Database - Midterm.lib" /MACHINE:X86 Debug\Administrator.obj
+         "Debug\CSU Database.obj"
+         Debug\Graduate.obj
+         Debug\Student.obj
+         Debug\Undergraduate.obj
+         CSU Database - Midterm.vcxproj -> C:\Users\Kim\Downloads\School\C++ 2\CSU Database - Midterm\Debug\CSU Database - Midterm.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\CSU Database - Midterm.unsuccessfulbuild".
+         Touching "Debug\CSU Database - Midterm.lastbuildstate".
+     1>Done Building Project "C:\Users\Kim\Downloads\School\C++ 2\CSU Database - Midterm\CSU Database - Midterm\CSU Database - Midterm.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.73

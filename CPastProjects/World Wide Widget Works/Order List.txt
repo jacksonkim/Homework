@@ -1,0 +1,5 @@
+01573 Idania Water
+00365 Billy Fire
+00248 Garren WaterAir
+01258 Alden Normal
+01000 Tristan Earth

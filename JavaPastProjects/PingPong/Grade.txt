@@ -1,0 +1,12 @@
+Grade   95
+
+
+Used old Thread class:      -5 points
+
+Use the ExecutorService
+to create and manage a thread pool
+and execute the threads
+Use of the Thread object
+is discouraged because the 
+threads do not get managed 
+automatically.

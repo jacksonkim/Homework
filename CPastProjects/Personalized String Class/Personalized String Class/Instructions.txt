@@ -1,0 +1,7 @@
+In this folder, you will find a partial vector implementation of a string class. Your tasks are:
+
+	•to fill in the missing string methods using vector operations. Use the code in the main.cpp file to verify that your string class is working properly. You may develop more test for the string class. (some of the test				have been commented out of the program to allow the code to compile with a partial string class)
+
+	•complete the commenting in the string.cpp file for ALL methods.
+
+Use the string class reference on cplusplus.com and the use of the Standard string class in main.cpp to verify that you have made our CIST2362 string class compliant.

@@ -1,0 +1,226 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Cyn's Obscure Protoman Corner</title>
+	<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+	
+	<style>
+		body {background-color: gray;
+			font-family: Segoe UI, sans-serif;
+			font-size: 11pt;
+			color: #FFFFFF;}
+		h1 {text-align:center;}
+		a:link { color:#CC99CC;}
+		a:hover {color:#CC99CC;}
+		a: visited {color:#FFFFFF;}
+		
+		#leftProto
+		{
+			float: left;
+			text-align: center;
+			width: 310px;
+		}
+		
+		#midProto
+		{			
+			text-align: center;
+			width: 320px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		
+		#rightProto
+		{	
+			float: right;
+			text-align: center;
+			width: 310px;
+		}
+		
+		
+	</style>
+	
+	<script type="text/javascript">
+	/* <![CDATA[ */
+		var protomen = new Array(16);
+		var beamProto = 0;
+		var curProto = 7;
+		var beam, begin;
+		
+		var shotCount = 0;
+		
+		protomen[0] = "proto/proto0.png";
+		protomen[1] = "proto/proto1.png";
+		protomen[2] = "proto/proto2.png";
+		protomen[3] = "proto/proto3.png";
+		protomen[4] = "proto/proto4.png";
+		protomen[5] = "proto/proto5.png";
+		protomen[6] = "proto/proto6.png";
+		protomen[7] = "proto/proto7.png";
+		protomen[8] = "proto/proto8.png";
+		protomen[9] = "proto/proto9.png";
+		protomen[10] = "proto/proto10.png";
+		protomen[11] = "proto/proto11.png";
+		protomen[12] = "proto/proto12.png";
+		protomen[13] = "proto/proto13.png";
+		protomen[14] = "proto/proto14.png";
+		protomen[15] = "proto/proto15.png";
+		
+		function beamIn()
+		{			
+			
+			if(beamProto == 6)
+			{
+				beamProto = 0;
+				clearInterval(beam);
+				document.getElementsByTagName("img")[0].src = protomen[curProto].src;
+				document.getElementsByTagName("img")[0].src = protomen[curProto];				
+			}
+			else
+			{
+				document.getElementsByTagName("img")[0].src = protomen[beamProto].src;			
+				document.getElementsByTagName("img")[0].src = protomen[beamProto];
+				++beamProto;
+			}			
+		}
+		
+		function startBeam()
+		{
+			document.getElementsByTagName("img")[1].style.visibility = "hidden";
+			document.getElementsByTagName("img")[0].style.visibility = "visible";
+			if (beam)
+				clearInterval(beam);
+			beam = setInterval("beamIn()", 75);
+		}
+		
+		function shoot()
+		{
+			if (curProto == 15)
+			{
+				curProto = 7;
+				clearInterval(begin);
+				document.getElementsByTagName("img")[0].src = protomen[curProto].src;
+				document.getElementsByTagName("img")[0].src = protomen[curProto];
+			}
+			else
+			{				
+				document.getElementsByTagName("img")[0].src = protomen[curProto].src;			
+				document.getElementsByTagName("img")[0].src = protomen[curProto];
+				++curProto;
+			}
+		}
+		
+		function startShooting()
+		{
+			document.getElementsByTagName("img")[1].style.visibility = "hidden";
+			document.getElementsByTagName("img")[0].style.visibility = "visible";			
+			if (begin)
+				clearInterval(begin);
+			begin = setInterval("shoot()", 75);
+			
+		}
+		
+		function beamIn2()
+		{			
+			
+			if(beamProto == 6)
+			{
+				beamProto = 0;
+				clearInterval(beam);
+				document.getElementsByTagName("img")[1].src = protomen[curProto].src;
+				document.getElementsByTagName("img")[1].src = protomen[curProto];				
+			}
+			else
+			{
+				document.getElementsByTagName("img")[1].src = protomen[beamProto].src;			
+				document.getElementsByTagName("img")[1].src = protomen[beamProto];
+				++beamProto;
+			}			
+		}
+		
+		function startBeam2()
+		{
+			document.getElementsByTagName("img")[0].style.visibility = "hidden";
+			document.getElementsByTagName("img")[1].style.visibility = "visible";
+			if (beam)
+				clearInterval(beam);
+			beam = setInterval("beamIn2()", 75);
+		}
+		
+		function shoot2()
+		{
+			if (curProto == 15)
+			{
+				curProto = 7;
+				clearInterval(begin);
+				document.getElementsByTagName("img")[1].src = protomen[curProto].src;
+				document.getElementsByTagName("img")[1].src = protomen[curProto];
+			}
+			else
+			{				
+				document.getElementsByTagName("img")[1].src = protomen[curProto].src;			
+				document.getElementsByTagName("img")[1].src = protomen[curProto];
+				++curProto;
+			}
+		}
+		
+		function startShooting2()
+		{
+			document.getElementsByTagName("img")[0].style.visibility = "hidden";
+			document.getElementsByTagName("img")[1].style.visibility = "visible";			
+			if (begin)
+				clearInterval(begin);
+			begin = setInterval("shoot2()", 75);
+			
+		}
+		
+		function shotCounter()
+		{
+			document.protoForm.shotCounterShow.value = shotCount;
+			document.protoForm2.shotCounterShow.value = shotCount;
+		}
+		
+		function quizTime()
+		{
+			window.open("http://cynsobscurecorner.com/final/quiz.html", "_self");
+		}
+	/* ]]> */
+	</script>
+</head>
+
+<body>
+	<h1>Protoman's Story</h1>
+	<div id="leftProto">
+		<img src="" height="300" width="300" id="leftProto" style="visibility:hidden;" />
+		<form name="protoForm" action="">		
+			<p><input type="button" value="Beam here" onclick="startBeam();" />
+			<input type="button" value="Shoot" id="lemons" onclick="startShooting(); ++shotCount; shotCounter();" />
+			<br /> Protoman has shot <br /><input type="text" name="shotCounterShow" size="1" /> <br />times from his blaster.</p>		
+		</form>
+	</div>
+	<div id="rightProto">
+		<img src="" height="300" width="300" id="rightProto" style="visibility:hidden;" />
+		<form name="protoForm2" action="">		
+			<p><input type="button" value="Beam here" onclick="startBeam2();" />
+			<input type="button" value="Shoot" id="lemons" onclick="startShooting2(); ++shotCount; shotCounter();" />
+			<br /> Protoman has shot <br /><input type="text" name="shotCounterShow" size="1" /> <br />times from his blaster.</p>		
+		</form>
+	</div>
+	<div id="midProto">
+		<a style="color:white" onmouseout="document.getElementById('creator').style.display='none'" onmouseover="document.getElementById('creator').style.display='block'">Protoman's Creator</a>
+		<p id="creator" style="display:none">Doctor Thomas Light is the one that built Protoman. He was, however, repaired by by Doctor Albert Wily some time later.</p>
+		<br /><br /><a style="color:white" onmouseout="document.getElementById('why').style.display='none'" onmouseover="document.getElementById('why').style.display='block'">Why though?</a>
+		<p id="why" style="display:none">Light created Protoman to be the first robot capable of independent thought and reasoning.</p>
+		<br /><br /><a style="color:white" onmouseout="document.getElementById('repair').style.display='none'" onmouseover="document.getElementById('repair').style.display='block'">That thing about Wily though.</a>
+		<p id="repair" style="display:none">Wily found Protoman dying of an unstable energy core and took it upon himself to repair the poor robot.</p>
+		<br /><br /><a style="color:white" onmouseout="document.getElementById('light').style.display='none'" onmouseover="document.getElementById('light').style.display='block'">Did Light know?</a>
+		<p id="light" style="display:none">Light knew about Protoman's unstable core. He wanted to fix it but Protoman was worried the changes would alter his personality too much and fled. Which is how Wily found him.</p>
+		<br /><br /><a style="color:white" onmouseout="document.getElementById('sad').style.display='none'" onmouseover="document.getElementById('sad').style.display='block'" href="http://youtu.be/Ja0S7i0pe2s" target="_blank">That's kinda sad...</a>
+		<p id="sad" style="display:none">It certainly is. Protoman is a tragic character. He came up with his own whistle and, while he died in a forest, continued to whistle that tune until he passed out. If you'd like to hear it, check out the Youtube link on the headline of this paragraph.</a></p>
+		
+		
+		<br /><br />
+		<input type="button" value="Take a Quiz?" onclick="quizTime();" />
+	</div>
+</body>
+</html>

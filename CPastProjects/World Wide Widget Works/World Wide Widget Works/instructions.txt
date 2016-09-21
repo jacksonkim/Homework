@@ -1,0 +1,9 @@
+This program is based on the World Wide Widget Works code listed in the Budd Book in the PPT slides for the list class. Both have the same code. The current program is an inventory management system for WWWW. Your job is to enhance the program with the following features:
+
+1. Add a name and description for each widget. At the moment, the employees have to keep track of id numbers and its become more difficult with the increasing types of widgets. The name and desciption would be very helpful in increasing productivity.
+
+2. The inventory should be read from a file when the system starts up and saved to a file when the system closes.
+
+3. Create a menu system with the options to process an order, receive a shipment, and exit. 
+
+NOTE: The code that is in the book and slides is C++-like Pseudocode for the purposes of this assignment. This means that you can not just type the code in and expect it to work. You still need to type the code and build it one class at a time. This will help you identify errors early and it will also help you better understand the code. You may add code to get rid of compiler errors or runtime errors in the logic. You may use STL algorithms wherever you would like if it will reduce the code size. You may not change the structure of the classes and the data STL container must remain a STL list.

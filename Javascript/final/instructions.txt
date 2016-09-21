@@ -1,0 +1,11 @@
+Create a Web Site that uses JavaScript throughout the site,  The site should govern what you do on the pages.  Pay attention to what is appropriate for YOUR web site.  I expect there to be many different functions created and used on the site.  These functions will vary greatly eg calculate cost of goods sold, calculate sales tax, any other mathematical functions required, responses to questions that may be asked games, quizzes, polls, surveys, slideshows, etc.  Also be sure to use: onmouseover, onmouseout, onfocus, onclick events on your site.  I want to find JavaScript buttons calling functions to go to other pages (NO HTML hypertext links!).  If you would like to use JavaScript with your graphics help yourself.
+
+I would like to see the use of arrays, cookies, animations, a decision, a loop, CSS positioning, form data validation, and your pages should be well-formed.
+
+The purpose of this project is to be sure that you understand and can use JavaScript correctly.  I recognize that many of you are just learning this scripting language so feel free to try new and different things.  Just be sure that some of it works or that you have enough that works for your presentation.  The final project presentation will be Thursday April 25, 2013.
+
+This project is due on your Web site BEFORE class begins on Due date. 
+
+Post to your Web site and place your code, images, etc. on a CD and hand the CD to me when you present.
+
+Make this project FUN!

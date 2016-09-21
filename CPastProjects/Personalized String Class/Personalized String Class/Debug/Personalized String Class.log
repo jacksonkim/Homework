@@ -1,0 +1,15 @@
+﻿Build started 10/22/2012 7:53:45 AM.
+     1>Project "C:\Users\Kim\Downloads\School\C++ 2\Personalized String Class\Personalized String Class\Personalized String Class.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\Personalized String Class.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 11.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc110.pdb" /Gd /TP /analyze- /errorReport:prompt "stringv-incomplete.cpp"
+         stringv-incomplete.cpp
+     1>c:\users\kim\downloads\school\c++ 2\personalized string class\personalized string class\stringv-incomplete.cpp(115): error C2678: binary '[' : no operator found which takes a left-hand operand of type 'const CIST2362::string' (or there is no acceptable conversion)
+                 c:\users\kim\downloads\school\c++ 2\personalized string class\personalized string class\string.h(49): could be 'char &CIST2362::string::operator [](int)'
+                 while trying to match the argument list '(const CIST2362::string, int)'
+     1>Done Building Project "C:\Users\Kim\Downloads\School\C++ 2\Personalized String Class\Personalized String Class\Personalized String Class.vcxproj" (Build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:04.08

@@ -1,0 +1,37 @@
+This program will read a file of names and hobbies. The program should be written using the STL list class. Your lists should contain object pointers. The program processes these names and hobbies to determine top 5 most popular hobbies and then outputs the groups of users that are most likely to become friends based on the hobbies they enjoy. The criteria for friending is based on the following rules:
+
+    1.    If two people enjoy 2 or more hobbies, and
+    2.    If the commonly enjoyed hobbies are at least 50% of their hobbies.
+
+The rationale is that to be friends they have to have at least two activities in common and they would have to be spending a good bit of time on those activities. This means that if person A has 6 hobbies and a person B has 3 hobbies that if they only have 2 hobbies in common they are less likely to be friends. However, if there is a person C with 4 hobbies and 2 are in common with person B then they are more likely to be friends because thats 50% of person C's hobbies and 60% of person B's hobbies.
+
+HINT: Use the example applications from the class discussion/slides as a model for this program
+
+Input
+
+The format of the input file (name your file people.dat) is a sequence of people, where each person is a line in the file that is comma delimited (note the brackets are just to denote field names and not part of the input file data):
+
+<first name>,<last name>,<hobby 1>,<hobby 2>,<hobby 3>, … <hobby N>, END
+<first name>,<last name>,<hobby 1>,<hobby 2>,<hobby 3>, … <hobby N>,END
+etc.
+
+Thus an example input file would be:
+
+Charles,Thomas,basketball,reading,END
+
+Jack,Smith,football,reading,END
+
+Janice,Evans,movies,swimming,traveling,END
+
+The file may have any number of people, and each person will have an arbitrary number of hobbies. The word END must be in all caps.
+
+While the names of the people and hobbies may be entered in a case sensitive manner, you must store them in your program where the first letter is capitalized and the remainder of the work is lower-case. For example, you may read "basketball" as a hobby, but you should store it as "Basketball".
+
+All hobbies need to be specified as a single word or multiple words with underscores as spaces e.g. Stamp Collecting should be Stamp_collecting
+
+Output
+
+The output of this program must include:
+
+    •    The top 5 hobbies listed with the number of times they occur in the input file
+    •    The list of likely friend groups based on the friendship criteria. This should include the list of common hobbies and the list of names that would be friends.

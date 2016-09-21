@@ -1,0 +1,15 @@
+Class name:
+TicTacToe
+
+Class variable:
+a two-dimensional array that contains the 9 boxes or cells to store 'x' and 'o' on the TicTacToe board - char type, name the variable board
+
+Class method:
+1. void displayUpdate() uses System.out.print or println to draw the board, put a - (dash) in the boxes that are empty or have not been marked
+2. boolean insertNextMove(char c, int row, int column) - places a char into the block indicated by row and column, the method should check to make sure the char is either 'x' or 'o' and the row/column exists and not out of bound in the array and throw/catch the exception when necessary and return true if the insert move was successful or false if the move is illegal. For example, if a cell already has 'x' or 'o' in it, then it is not legal to put something else in that same cell again
+3. boolean gameOver() checks to see if the game has been won - by checking for consecutive blocks of the same sign (either x's or o's)
+
+Main method:
+create a loop that keeps asking the user to enter a char, int, and another int and use those values to call the methods of the TicTacToe class object to play the game until the game is over
+
+* Submit all file(s) together. Follow the steps posted in the 'Read This First' module to double-check file submission to make sure that it goes through successfully. This is a test. Online students are given a lot more time to complete compared to students in a regular hybrid class setup (who typically have about 90 minutes to complete this type of test). Everything needs to be submitted by the deadline (even if what you have is incomplete work). The dropbox will be locked after the deadline is passed and late submissions will not be accepted.

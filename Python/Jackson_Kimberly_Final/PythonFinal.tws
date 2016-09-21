@@ -1,0 +1,413 @@
+(dp0
+S'buildDestination'
+p1
+S''
+p2
+sS'saveDestination'
+p3
+S'I:\\School\\Python\\Jackson_Kimberly_Final\\PythonFinal.tws'
+p4
+sS'target'
+p5
+S'sugarcane'
+p6
+sS'storyPanel'
+p7
+(dp8
+S'widgets'
+p9
+(lp10
+(dp11
+S'selected'
+p12
+I00
+sS'pos'
+p13
+(lp14
+F43.0
+aF124.0
+asS'passage'
+p15
+(itiddlywiki
+Tiddler
+p16
+(dp17
+S'text'
+p18
+VIt's the unsteady rattling of a bottle of pills that brings you back from your dream. Whatever the dream was about fades quickly while the pills get louder, closer. The rattling is accompanied by footsteps, heels of a woman's shoe clicking over a tiled floor.\u000aYour body hurts, aches in various places. Where those places are is a mystery to you in your groggy state of unconsciousness. You can hear humming of machines, feel the warmth of electricity, even the static pulling at your arm hairs.\u000aThe pill bottle is finally closed, the cap replaced with a pleasant pop! It rattles back into a pocket of some kind, followed by the scratch of a bottle cap being turned. The liquid sloshes in the bottle and you hear swallowing after a moment. Then another slosh and swallow, followed by a short sigh.\u000aWith the aches around your body, you are hesitant to do anything beyond lying where you are. However uncomfortable it is. Which is a great deal. You can feel the unbending metal digging your shoulderblades into the thin layer of skin on your back. Your spine curves sharply at the small of your back to compensate the curve of your body against the unforgiving flat surface. The back of your head aches when you roll it in a different direction.\u000aAnd that's just your body.\u000aNothing smells out of the ordinary, which is out of the ordinary. Normally your home would smell like the pancakes or ramen or whatever you cooked the night before, or the sheets would smell like your morning breath from the drool on your pillow. Actually it does smell like something. It's soft, but its obviously a cleaning solution. You are reminded of the few times you had to visit the hospital.\u000aYour brow furrows slowly and a pain shoots around the side of your head that is resting on whatever hard surface you are laying on.\u000aAside from the sound of the pills, the water, the woman, you start to hear the rest of the room. You can tell that it isn't very large, judging by the sound of the machines humming away in the distance. Occasionally you hear the hiss of air released from a machine.\u000aSo definitely not your room. Nothing in this room is familiar. The hard floor, the hard surface, the machines. Maybe it's time to open your eyes.\u000aYou are finally able to open your eyes. The brightness is unexpected, stinging your eyes and causing them to water in defense. Pain shoots through your skull, every breath and heartbeat thudding loudly against the inside. There are lights overhead, flourescent tubes in those gridded ceiling tiles. Those same ceiling tiles in every major building, the white ones with the black spots, or holes, or whatever is wrong with them.\u000aYou slowly roll your eyes to your right, the motion reminding you that you are in pain, in the direction that you heard the pills and the water. As they move, you see the machines lining the walls. Not one has a visible printout, but all of them appear to be connected together to one object somewhere in your direction.\u000aYou focus on the woman with little difficulty. She appears to be tall, though that could just be your relative position to her. You appear to be around hip-height to her. She has her back to you, standing at a table with her arms meeting somewhere in her center mass. She has long red hair cascading down her back, stopping around the small of her back. Her lab coat continues on around her mid-thigh, black slacks cover her legs. She isn't far enough away for you to see her offensive shoes, though you know enough about them from the clicking inside your skull.\u000a\u000a1: [[Attempt to get up]]\u000a2: [[Address the woman]]
+p19
+sS'tags'
+p20
+(lp21
+sS'created'
+p22
+ctime
+struct_time
+p23
+((I2013
+I11
+I24
+I2
+I58
+I53
+I6
+I328
+I0
+tp24
+(dp25
+tp26
+Rp27
+sS'modified'
+p28
+g27
+sS'title'
+p29
+VStart
+p30
+sbsa(dp31
+g12
+I00
+sg13
+(lp32
+F189.0
+aF11.0
+asg15
+(itiddlywiki
+Tiddler
+p33
+(dp34
+g18
+VYour torso muscles tense up a bit and you start to lift yourself off of whatever it is you're laying on. Or you try to. You feel the straps dig in to your skin, hear the metal clink against itself on the ratchet and the squeaking of the cloth as it stretches against you, holding you down fast. This sobers you a bit, though not completely.\u000aThe noise of your movements has alerted the woman in the room with you. "Oh good, you're awake." She clicks closer, and your jaw clenches reflexively. The clicking fills your skull, threatening to break it apart from the inside.\u000aHer cold hands press to your throat and wrist, and you hear a sharp intake of breath through your own teeth. After a few seconds, you see her nod and she moves her hand to your forehead, thankfully a little warmer. She glances to her left, behind you. "Pulse is steady, no fever." Her hand moves away to her lab coat pocket and she pulls out a pen-like object. She clicks it and you see a light against the palm of her hand.\u000aThe pain shoots directly back from your eyes as she shines the light into your eyes and away. Your object in the form of squirms and groans, but she holds your eyelid open and checks both eyes. "Responses all seem within normal levels."\u000a\u000a[[back to main]]
+p35
+sg20
+(lp36
+sg22
+g23
+((I2013
+I11
+I24
+I3
+I16
+I12
+I6
+I328
+I0
+tp37
+(dp38
+tp39
+Rp40
+sg28
+g40
+sg29
+VAttempt to get up
+p41
+sbsa(dp42
+g12
+I00
+sg13
+(lp43
+F193.0
+aF186.0
+asg15
+(itiddlywiki
+Tiddler
+p44
+(dp45
+S'text'
+p46
+VObservation of the room leaves you with more questions than answers.\u000aYou collect the saliva in your mouth and attempt to swallow it. Your tongue seems to fill your entire mouth, making it hard to get the saliva into your throat. It's too bad, though, because your throat stings all the way down, as if you had swallowed razor blades earlier. A small groan reaches your ears and you realize it is your own voice.\u000aThe noise reaches your companion's ears as well, and you hear her shoes click closer to you, every step resonating loudly inside your skull. Blissfully, it stops as soon as she reaches your side. Her cold hands press to your throat and wrist, and you hear a sharp intake of breath through your own teeth.\u000aThis is your chance. "Where am I?" Your voice sounds like the razor blades are still clogging your throat and feel twice as bad.\u000aThe hands move away sharply with a gasp. Your brow furrows slowly at her reaction. She takes a moment to collect herself and moves her hand to your forehead. "You're in a safe place."\u000a"That's a dodgy answer." Razor blades. "Safe from what."\u000aShe looks behind you, to her left. "Pulse is normal, no fever. Awake enough to be talking, so I will forego the other tests."\u000a\u000a\u000a[[back to main]]
+p47
+sS'tags'
+p48
+(lp49
+sS'created'
+p50
+g23
+((I2013
+I12
+I5
+I4
+I41
+I30
+I3
+I339
+I0
+tp51
+(dp52
+tp53
+Rp54
+sS'modified'
+p55
+g54
+sS'title'
+p56
+VAddress the woman
+p57
+sbsa(dp58
+g12
+I00
+sg13
+(lp59
+F350.0
+aF130.0
+asg15
+(itiddlywiki
+Tiddler
+p60
+(dp61
+S'text'
+p62
+V"Where am I?" Your throat burns with every word.\u000aShe glances between you and the space behind you. "How about we just get you off this slab, hm?" Her body language is completely different. She moves away and her head disappears from view.\u000aYou hear the ratcheting in your teeth, clenched together so hard at every other loud sound that pounds inside your skull. The straps loosen immediately and you watch them fly over your body to the other side of the table.\u000aYou take a deep breath once the last strap is gone. Every ache and pain diminishes or disappears, the horrendous clicking becoming a sharp pain somewhere behind your eyes.\u000aYou sieze the opportunity and throw your right leg off the table first, using the imbalance to push yourself up. The woman pulls on your shoulder to help you sit up while you swing your left leg to join its partner.\u000aYou look down at your legs. Both are intact and covered in jeans. You are wearing a simple solid color t-shirt. You even have sneakers on.\u000aYou swallow again, the razor blades morphed into a cheese grater. "You never answered me." You try to clear your throat, but it makes everything so much worse, forcing you to turn your head, eyes closed.\u000a"Sure I did." Her voice breaks. "Somewhere safe." She turns around immediately and heads back to the table a few feet away.\u000aYou look to your left, toward the machines. They are all in fact linked up to you. You have no idea how you missed the needles stuck in your arms, the nodes stuck up under your simple t-shirt with plenty of slack on the wire. Another brow furrow and you can feel the nodes around your head.\u000a\u000a1: [[What the hell]]\u000a2: [[Am I free to go]]
+p63
+sS'tags'
+p64
+(lp65
+sS'created'
+p66
+g23
+((I2013
+I12
+I5
+I5
+I29
+I28
+I3
+I339
+I0
+tp67
+(dp68
+tp69
+Rp70
+sS'modified'
+p71
+g70
+sS'title'
+p72
+Vback to main
+p73
+sbsa(dp74
+g12
+I00
+sg13
+(lp75
+F501.0
+aF33.0
+asg15
+(itiddlywiki
+Tiddler
+p76
+(dp77
+g62
+V"What the hell!" The words are out of you before you can even think. Your heart is fast again, beating wildly against your ribcage. Your hands fly quickly to one of the nodes attached to your head.\u000a"No! Stop!" You hear her, but the words don't mean anything. The node is already detached from your temple.\u000aEverything hurts again, this time a burning sensation that starts at your toes and flows all the way to your temple. There is nothing but fire and it started there. You're sure you have a body in there somewhere, but the fire licks at your eyes, at your fingers. You remember being in a room somewhere, with a woman, but none of that matters now. All that matters is the fire. The fire.\u000aThe stickiness returns and you feel the fire recede. The ceiling has appears to be some orange hue. You can hear the wheezing in your deep breaths, struggling to swallow enough air in and out of your lungs.\u000a"Please. These machines are helping you recuperate. Let them do their work and you will be free to go." There is a weight on your shoulder that you assume is her hand.\u000a"What." Air continues to elude you. "the hell." Your eyes blink and everything has a bluish tint. "was that?"\u000aShe purses her lips and glances to her left, your right. Instinctively, you look in that direction as well.\u000a\u000a[[back to main 2]]
+p78
+sg64
+(lp79
+sg66
+g23
+((I2013
+I12
+I5
+I6
+I8
+I29
+I3
+I339
+I0
+tp80
+(dp81
+tp82
+Rp83
+sg71
+g83
+sg72
+VWhat the hell
+p84
+sbsa(dp85
+g12
+I00
+sg13
+(lp86
+F502.0
+aF203.0
+asg15
+(itiddlywiki
+Tiddler
+p87
+(dp88
+g62
+VThe machinery connected to you doesn't appear to do anything special. There's no beeps or tickers tracking anything. There is no visible output. You assume they are just there for show. You turn your attention back to the ginger.\u000a"Am I free to go?" Your throat is still a cheese grater, but at least you sound better.\u000aGinger turns around to you and shrugs. "I'll take all the leads and needles out whenever the machines are done."\u000aYou glance to the machines again. "But they aren't doing anything."\u000aGinger looks between you and the area to your right, her left again. Her lips purse.\u000a\u000a[[back to main 2]]
+p89
+sg64
+(lp90
+sg66
+g23
+((I2013
+I12
+I5
+I6
+I32
+I17
+I3
+I339
+I0
+tp91
+(dp92
+tp93
+Rp94
+sg71
+g94
+sg72
+VAm I free to go
+p95
+sbsa(dp96
+g12
+I00
+sg13
+(lp97
+F288.0
+aF415.0
+asg15
+(itiddlywiki
+Tiddler
+p98
+(dp99
+g62
+VThe right wall isn't even a wall. It is just a massive mirror. Reflected in it is a the entire room, all the machines along the left wall, the tables in the room, the slab you are sitting on, Ginger, and you.\u000aThe wires connect to various parts of your body, three on your head, which you now see has been shaved. You lift a hand to feel the stubble that was once your hair. The needles sticking out of your hand tug at the skin, poke around in the vein, a bruise under the skin from movement. It's soft, whatever stubble is left.\u000a"Why did you shave my head?"\u000aGinger looks back to you, but you cannot pull yourself away from your reflection. "Access."\u000a"Access for what?"\u000aThere is a hesitation in her voice. "The surgery."\u000aYour ribcage is attacked by your heart again. You look back to her. "Surgery?"\u000aShe nods. "I have a few questions to ask you, then we can get you out of here, okay?"\u000aYour eyes are wide, your throat tight. "What surgery?"\u000aGinger shakes her head and moves to the table. "Just a few questions, then you can go."\u000a\u000a1: [[I'm not answering your questions]]\u000a2: [[As long as I can go]]
+p100
+sg64
+(lp101
+sg66
+g23
+((I2013
+I12
+I5
+I6
+I41
+I37
+I3
+I339
+I0
+tp102
+(dp103
+tp104
+Rp105
+sg71
+g105
+sg72
+Vback to main 2
+p106
+sbsa(dp107
+g12
+I00
+sg13
+(lp108
+F494.0
+aF356.0
+asg15
+(itiddlywiki
+Tiddler
+p109
+(dp110
+g62
+VThe pain, the wires, the needles. None of this makes sense. None of it is "safe".\u000a"I'm not answering any questions. I want these things off me and I want out."\u000aGinger bites her lip and looks to the mirror again. "The time that it takes to answer the questions will fill the time you have left connected to the machines."\u000aYou swallow again, cheese grater still in your throat. "Don't leave me much of a choice now, do you."\u000aGinger smiles weakly, but tactfully remains silent.\u000a\u000a[[As long as I can go]]
+p111
+sg64
+(lp112
+sg66
+g23
+((I2013
+I12
+I5
+I8
+I11
+I39
+I3
+I339
+I0
+tp113
+(dp114
+tp115
+Rp116
+sg71
+g116
+sg72
+VI'm not answering your questions
+p117
+sbsa(dp118
+g12
+I00
+sg13
+(lp119
+F499.0
+aF535.0
+asg15
+(itiddlywiki
+Tiddler
+p120
+(dp121
+g62
+VGinger nods and turns around to grab the clipboard. "Okay, first question."\u000a\u000aYour friend is about to get married. You are chosen to play a key role in the ceremony, but you do not agree with the marriage. Would you:\u000a\u000a1: Say nothing and trust your friend's choice\u000a2: Object to the wedding and risk your friendship\u000a\u000aGinger jots down your answer. "Thank you. Couple more questions."\u000a\u000aYou're at home watching television. A tickle on your arm draws attention to a wasp crawling on it. How do you react?\u000a\u000a1: Freak out and try to kill it\u000a2: Carefully get outside and let it fly away\u000a\u000aGinger hums and jots something down on the clipboard. "Good, good. Okay, last one."\u000a\u000aYou are serving on a jury. The evidence has left no room for reasonable doubt, leading you to believe the accused is guilty. But, morally, you agree with what they are accused of. How do you vote?\u000a\u000a1: Guilty\u000a2: Not Guilty\u000a\u000a[[main 3]]
+p122
+sg64
+(lp123
+sg66
+g23
+((I2013
+I12
+I5
+I8
+I44
+I46
+I3
+I339
+I0
+tp124
+(dp125
+tp126
+Rp127
+sg71
+g127
+sg72
+VAs long as I can go
+p128
+sbsa(dp129
+g12
+I00
+sg13
+(lp130
+F779.0
+aF469.0
+asg15
+(itiddlywiki
+Tiddler
+p131
+(dp132
+g62
+VThe last question answered, Ginger nods and looks toward the mirror again. You follow her gaze, but all you see is her and whatever monstrosity you have turned into. Wires and needles, no hair, no definition. You barely recognize yourself.\u000a\u000aGinger moves toward the machines and starts to flip switches and turn them off. "You are safe to remove the leads on your own. I have to be the one to remove the needles."\u000a\u000aYou take a deep breath. The cheese grater is missing from your throat. You raise a hand to remove the node on your temple. Nothing of importance happens. You still feel a little sticky.\u000a\u000aOnce all of the leads are done, Ginger shows back up to remove the needles. You assist when she tells you to.\u000a\u000aQuestions all asked, Ginger promised this was the end. "So I'm free to go now?"\u000a\u000aGinger turns to you, then to the mirror. You look to the mirror and see your reflection. After a moment, Ginger turns back to you. "The door is right over there. Your cooperation has been appreciated."\u000a\u000aBefore you have a chance to question her further, Ginger and her clipboard are gone. The only thing left is her water bottle.\u000a\u000aResults
+p133
+sg64
+(lp134
+sg66
+g23
+((I2013
+I12
+I5
+I8
+I50
+I49
+I3
+I339
+I0
+tp135
+(dp136
+tp137
+Rp138
+sg71
+g138
+sg72
+Vmain 3
+p139
+sbsasS'scale'
+p140
+F1.0
+ss.

@@ -1,0 +1,17 @@
+﻿Build started 11/20/2012 5:06:13 AM.
+     1>Project "C:\Users\Kim\Downloads\School\C++ 2\World Wide Widget Works\World Wide Widget Works\World Wide Widget Works.vcxproj" on node 2 (Build target(s)).
+     1>InitializeBuildStatus:
+         Creating "Debug\World Wide Widget Works.unsuccessfulbuild" because "AlwaysCreate" was specified.
+       ClCompile:
+         All outputs are up-to-date.
+       Link:
+         All outputs are up-to-date.
+         World Wide Widget Works.vcxproj -> C:\Users\Kim\Downloads\School\C++ 2\World Wide Widget Works\Debug\World Wide Widget Works.exe
+       FinalizeBuildStatus:
+         Deleting file "Debug\World Wide Widget Works.unsuccessfulbuild".
+         Touching "Debug\World Wide Widget Works.lastbuildstate".
+     1>Done Building Project "C:\Users\Kim\Downloads\School\C++ 2\World Wide Widget Works\World Wide Widget Works\World Wide Widget Works.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.10

@@ -1,0 +1,28 @@
+Merce Cunningham
+10284
+liberal arts
+13 hours
+college algebra, us history, figure drawing, independant study
+
+isadora duncan
+39218
+political science
+12 hours
+college algebra, learning frameworks, us history, world history
+
+tatsumi hijikata
+87462
+film
+15 hours
+college algebra, us history, writing for TV, digital processses, basic composition
+
+admins
+alden1865
+pass: idania22
+
+axs124998
+pass:wigwams801
+
+johnsttunafish
+pass: password123
+
